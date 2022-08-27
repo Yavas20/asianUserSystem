@@ -16,4 +16,5 @@
 ### Runner class allows me to run different types of testing suites that I created with my tags.
 ### I had different types of reports. But mainly I use "maven-cucumber-reporting" which is a very detailed reporting tool that has pie-charts, matrixes on which tests ### are passing and failing.
 ### Hooks class, where I implemented some cucumber annotations such as Before, After, beforestep, afterstep to create outline for my scenarios.
-### I also implemented a logic where my framework is taking a screenshot and attaching it to my report if a scenario is failing.
+### I implemented a logic where my framework is taking a screenshot and attaching it to my report if a scenario is failing.
+### I also implemented DDT using Scenario Outline and Examples.
