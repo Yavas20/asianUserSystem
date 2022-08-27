@@ -59,6 +59,19 @@ Feature: Login and register functionality
     And User click the register button
     Then Verify that “Email already exists.” message can be displayed
 
+  @TestCase8
+  Scenario Outline: User should be able to login with different credentials.
+    When User enter a valid "<email>" into the email input box
+    And User enter a valid "<password>" into the password input box
+    And User click the click sign in button
+    Then Verify that user can land on homepage
+
+    Examples:
+      | email                      | password     |
+      | yavas.emre@hotmail.com     | Zeynep121784 |
+      | emreyavas20@hotmail.com    | ser          |
+      | emreyavass001984@gmail.com | 1            |
+
 
 
 

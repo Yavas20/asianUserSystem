@@ -130,4 +130,14 @@ public class AsianStepDefinitions {
         String expectedMessage = "Email already exists";
         Assert.assertTrue(loginPage.EmailAAlreadyExistMessage.getText().contains(expectedMessage));
     }
+
+    @When("User enter a valid {string} into the email input box")
+    public void userEnterAValidIntoTheEmailInputBox(String email) {
+        loginPage.emailSignInInputBox.sendKeys(email);
+    }
+
+    @And("User enter a valid {string} into the password input box")
+    public void userEnterAValidIntoThePasswordInputBox(String password) {
+        loginPage.passwordSignInInputBox.sendKeys(password);
+    }
 }
