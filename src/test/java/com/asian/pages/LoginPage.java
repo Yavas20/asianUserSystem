@@ -45,6 +45,19 @@ public class LoginPage{
     @FindBy(id = "input-error")
     public WebElement invalidUsernamePasswordMessage;
 
+    @FindBy(partialLinkText = "Forgot Password")
+    public WebElement forgotPasswordLink;
+
+    @FindBy(id = "username")
+    public WebElement forgotPasswordEmailInputBox;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement forgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//span[contains(text(), 'You should receive')]")
+    public WebElement forgotPasswordErrorMessage;
+
+
 
 
 }

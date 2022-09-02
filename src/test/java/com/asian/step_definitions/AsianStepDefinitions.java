@@ -140,4 +140,45 @@ public class AsianStepDefinitions {
     public void userEnterAValidIntoThePasswordInputBox(String password) {
         loginPage.passwordSignInInputBox.sendKeys(password);
     }
+
+    @When("User click the forgot password link")
+    public void userClickTheForgotPasswordLink() {
+
+        loginPage.forgotPasswordLink.click();
+    }
+
+    @And("User enter invalid email into the forgot your password email input box")
+    public void userEnterInvalidEmailIntoTheForgotYourPasswordEmailInputBox() {
+
+        loginPage.forgotPasswordEmailInputBox.sendKeys("123");
+    }
+
+    @And("User click the submit button")
+    public void userClickTheSubmitButton() {
+
+        loginPage.forgotPasswordSubmitButton.click();
+    }
+
+    @Then("Verify that “Invalid email address.” message can be displayed on forgot your password section")
+    public void verifyThatInvalidEmailAddressMessageCanBeDisplayedOnForgotYourPasswordSection() {
+
+        String expectedMessage = "Invalid email address";
+        Assert.assertTrue(loginPage.forgotPasswordErrorMessage.getText().contains(expectedMessage));
+
+    }
+
+    @And("User enter unregistered email into the forgot your password email input box")
+    public void userEnterUnregisteredEmailIntoTheForgotYourPasswordEmailInputBox() {
+
+        loginPage.forgotPasswordEmailInputBox.sendKeys("sdetsdet@asian.com");
+    }
+
+
+    @Then("Verify that “Unregistered email address.” message can be displayed on forgot your password section")
+    public void verifyThatUnregisteredEmailAddressMessageCanBeDisplayedOnForgotYourPasswordSection() {
+
+        String expectedMessage = "Unregistered email address";
+        Assert.assertTrue(loginPage.forgotPasswordErrorMessage.getText().contains(expectedMessage));
+
+    }
 }

@@ -72,6 +72,20 @@ Feature: Login and register functionality
       | emreyavas20@hotmail.com    | ser          |
       | emreyavass001984@gmail.com | 1            |
 
+  @TestCase9
+  Scenario: User should not be able to submit invalid email after clicking forgot password link.
+    When User click the forgot password link
+    And User enter invalid email into the forgot your password email input box
+    And User click the submit button
+    Then Verify that “Invalid email address.” message can be displayed on forgot your password section
+
+  @TestCase10
+  Scenario: User should not be able to submit unregistered email after clicking forgot password link.
+    When User click the forgot password link
+    And User enter unregistered email into the forgot your password email input box
+    And User click the submit button
+    Then Verify that “Unregistered email address.” message can be displayed on forgot your password section
+
 
 
 
