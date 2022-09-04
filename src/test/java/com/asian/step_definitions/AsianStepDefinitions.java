@@ -9,8 +9,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.interactions.Actions;
 
 import java.lang.module.Configuration;
+import java.util.List;
 
 public class AsianStepDefinitions {
 
@@ -183,4 +185,78 @@ public class AsianStepDefinitions {
     }
 
 
+    @When("User click the Korean language option")
+    public void userClickTheKoreanLanguageOption() {
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(loginPage.languageEnglish).perform();
+        loginPage.languageKorean.click();
+
+
+    }
+
+    @Then("Verify that Korean words can be displayed on the login part")
+    public void verifyThatKoreanWordsCanBeDisplayedOnTheLoginPart(List<String> words) {
+
+        System.out.println(loginPage.signInIntoYourAccountLoginWord.getText());
+        Assert.assertTrue(loginPage.signInIntoYourAccountLoginWord.getText().equals(words.get(0)));
+
+        System.out.println(loginPage.emailLoginWord.getText());
+        Assert.assertTrue(loginPage.emailLoginWord.getText().equals(words.get(1)));
+
+        System.out.println(loginPage.passwordLoginKoreanWord.getText());
+        Assert.assertTrue(loginPage.passwordLoginKoreanWord.getText().equals(words.get(2)));
+
+        System.out.println(loginPage.rememberMeLoginKoreanWord.getText().trim());
+        Assert.assertTrue(loginPage.rememberMeLoginKoreanWord.getText().trim().equals(words.get(3)));
+
+        System.out.println(loginPage.forgotPasswordLink.getText());
+        Assert.assertTrue(loginPage.forgotPasswordLink.getText().equals(words.get(4)));
+
+        System.out.println(loginPage.signInButton.getAttribute("value"));
+        Assert.assertTrue(loginPage.signInButton.getAttribute("value").equals(words.get(5)));
+
+        System.out.println(loginPage.registerTab.getText());
+        Assert.assertTrue(loginPage.registerTab.getText().equals(words.get(6)));
+
+
+    }
+
+    @When("User click the Japanese language option")
+    public void userClickTheJapaneseLanguageOption() {
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(loginPage.languageEnglish).perform();
+        loginPage.languageJapanese.click();
+
+    }
+
+    @Then("Verify that Japanese words can be displayed on the login part")
+    public void verifyThatJapaneseWordsCanBeDisplayedOnTheLoginPart(List<String> words) {
+
+        System.out.println(loginPage.signInIntoYourAccountLoginWord.getText());
+        Assert.assertTrue(loginPage.signInIntoYourAccountLoginWord.getText().equals(words.get(0)));
+
+        System.out.println(loginPage.emailLoginJapaneseWord.getText());
+        Assert.assertTrue(loginPage.emailLoginJapaneseWord.getText().equals(words.get(1)));
+
+    }
+
+    @When("User click the Chinese language option")
+    public void userClickTheChineseLanguageOption() {
+
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(loginPage.languageEnglish).perform();
+        loginPage.languageChinese.click();
+    }
+
+    @Then("Verify that Chinese words can be displayed on the login part")
+    public void verifyThatChineseWordsCanBeDisplayedOnTheLoginPart(List<String> words) {
+
+        System.out.println(loginPage.signInIntoYourAccountLoginWord.getText());
+        Assert.assertTrue(loginPage.signInIntoYourAccountLoginWord.getText().equals(words.get(0)));
+
+        System.out.println(loginPage.emailLoginWord.getText());
+        Assert.assertTrue(loginPage.emailLoginWord.getText().equals(words.get(1)));
+    }
 }

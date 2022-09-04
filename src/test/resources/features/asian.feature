@@ -86,7 +86,35 @@ Feature: Login and register functionality
     And User click the submit button
     Then Verify that “Unregistered email address.” message can be displayed on forgot your password section
 
+  @TestCase11
+  Scenario: User should be able to change the language as a Korean and see Korean words on the login part.
+    When User click the Korean language option
+    Then Verify that Korean words can be displayed on the login part
 
+      | Sign in to your account |
+      | Email                   |
+      | Password                |
+      | Remember me             |
+      | Forgot Password?        |
+      | Sign In                 |
+      | Register                |
+
+
+  @TestCase12
+  Scenario: User should be able to change the language as a Japanese and see Japanese words on the login part.
+    When User click the Japanese language option
+    Then Verify that Japanese words can be displayed on the login part
+
+      | Sign in to your account |
+      | Email                   |
+
+  @TestCase13
+  Scenario: User should be able to change the language as a Chinese and see Chinese words on the login part.
+    When User click the Chinese language option
+    Then Verify that Chinese words can be displayed on the login part
+
+      | Sign in to your account |
+      | Email                   |
 
 
 

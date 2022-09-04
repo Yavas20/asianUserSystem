@@ -57,6 +57,34 @@ public class LoginPage{
     @FindBy(xpath = "//span[contains(text(), 'You should receive')]")
     public WebElement forgotPasswordErrorMessage;
 
+    @FindBy(linkText = "English")
+    public WebElement languageEnglish;
+
+    @FindBy(linkText = "kr")
+    public WebElement languageKorean;
+
+    @FindBy(linkText = "日本語")
+    public WebElement languageJapanese;
+
+    @FindBy(linkText = "中文简体")
+    public WebElement languageChinese;
+
+    @FindBy(tagName = "h1")
+    public WebElement signInIntoYourAccountLoginWord;
+
+    @FindBy(xpath = "//label[.='Email']")
+    public WebElement emailLoginWord;
+
+    @FindBy(xpath = "//label[.='Password']")
+    public WebElement passwordLoginKoreanWord;
+
+    @FindBy(xpath = "//input[@id='rememberMe']/..")
+    public WebElement rememberMeLoginKoreanWord;
+
+    @FindBy(xpath = "//label[.='Eメール']")
+    public WebElement emailLoginJapaneseWord;
+
+
 
 
 
