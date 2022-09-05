@@ -116,7 +116,21 @@ Feature: Login and register functionality
       | Sign in to your account |
       | Email                   |
 
+  @TestCase14
+  Scenario: User should not be able to register with invalid email and valid password.
+    When User click the register tab
+    And User enter an invalid email into the register email inputBox
+    And User enter a "1" into the password input box
+    And User re-enter the "1" into the input box
+    And User click the register button
+    Then Verify that user cannot land on homepage
 
+  @TestCase15
+  Scenario: User should not be able to login with invalid email and valid password.
+    When User enter an invalid email "fff@gmail" into the email input box
+    And User enter a valid password "1" into the password input box
+    And User click the click sign in button
+    Then Verify that user cannot land on homepage
 
 
 

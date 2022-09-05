@@ -259,4 +259,41 @@ public class AsianStepDefinitions {
         System.out.println(loginPage.emailLoginWord.getText());
         Assert.assertTrue(loginPage.emailLoginWord.getText().equals(words.get(1)));
     }
+
+    @And("User enter an invalid email into the register email inputBox")
+    public void userEnter_AnInvalidEmailIntoTheRegisterEmailInputBox() {
+
+        loginPage.emailRegisterInputBox.sendKeys("ggg@gmail");
+
+    }
+
+    @And("User enter a {string} into the password input box")
+    public void userEnterAIntoThePasswordInputBox(String password) {
+        loginPage.passwordRegisterInputBox.sendKeys(password);
+    }
+
+    @And("User re-enter the {string} into the input box")
+    public void userReEnterTheIntoTheInputBox(String password) {
+
+        loginPage.passwordConfirmInputBox.sendKeys(password);
+    }
+
+    @Then("Verify that user cannot land on homepage")
+    public void verifyThatUserCannotLandOnHomepage() {
+
+        String expectedURL = "console";
+        Assert.assertFalse(Driver.getDriver().getCurrentUrl().contains(expectedURL));
+    }
+
+
+    @When("User enter an invalid email {string} into the email input box")
+    public void userEnterAnInvalidEmailIntoTheEmailInputBox(String email) {
+        loginPage.emailSignInInputBox.sendKeys(email);
+    }
+
+    @And("User enter a valid password {string} into the password input box")
+    public void userEnterAValidPasswordIntoThePasswordInputBox(String password) {
+
+        loginPage.passwordSignInInputBox.sendKeys(password);
+    }
 }
